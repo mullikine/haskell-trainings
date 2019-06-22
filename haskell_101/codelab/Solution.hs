@@ -91,7 +91,7 @@ codelab = error "SOMETHING IS NOT IMPLEMENTED!"
 
 null :: [a] -> Bool
 null [] = True
-null _  = False
+null _  = False -- here, _ is just a regular variable name
 
 
 -- head returns the first element of the list

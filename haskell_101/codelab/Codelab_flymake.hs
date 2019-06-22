@@ -91,29 +91,24 @@ codelab = error "SOMETHING IS NOT IMPLEMENTED!"
 
 -- null tells you whether a list is empty or not
 
-null :: [a] -> Bool -- 'null' is a function
-null [] = True      -- the empty list ∴ true
-null _ = False      -- anything else is false
+null :: [a] -> Bool
+null [] = True
+null _ = False
 
 
 -- head returns the first element of the list
 -- if the list is empty, it panics: this function is partial
 
--- But how does [h] mean 'list of h'? Isn't it a single h?
--- h is a type, not a value. The type signature contains only types
-head :: [h] -> h                      -- 'head' is a function. list -> element.
-                                      -- what is the relevance of 'a'? It could be anything?
-head []    = error "head: empty list" -- [], therefore error
-head (x:_) = x
+head :: [a] -> a
+head []    = error "head: empty list"
+head fixme = codelab
 
 
 -- tail returns everything but the first element
--- if the list is empty it panics, therefore it's a partial function
+-- if the list is empty it panics
 
 tail :: [a] -> [a]
-tail []     = error "tail: empty list"
--- discard the head
-tail (_:xs) = xs
+tail = codelab
 
 
 
@@ -130,39 +125,22 @@ tail (_:xs) = xs
 
 -- do you remember it from the slides?
 
--- Use recursion to calculate the length
--- haskell requires a lot of recursion
 length :: [a] -> Int
-length [] = 0
-length (_:xs) = 1 + length xs
-{- length l = codelab -}
--- alternatively, use foldl
--- length = foldl (\a _ -> a + 1) 0
+length l = codelab
 
 
 -- and returns True if all the boolean values in the list are True
 -- what do you think it returns for an empty list?
 
 and :: [Bool] -> Bool
-and []     = True
--- '&&' is a Bool operator
--- 'and' is a function that returns Bool
-and (x:xs) = x && and xs
--- and = foldl (&&) True
+and l = codelab
+
 
 -- or returns True if at least one value in the list is True
 -- what do you think it returns for an empty list?
 
--- or :: [Bool] -> Bool
--- or []     = False
--- or (x:xs) = x || or xs
--- -- or = foldl (||) False
-
 or :: [Bool] -> Bool
-or []     = False
-or (x:xs) = x || or xs
--- or xs = foldr (||) False xs -- this is not good enough
--- or = foldl (||) False
+or l = codelab
 
 
 -- (++) is the concatenation operator
@@ -170,11 +148,8 @@ or (x:xs) = x || or xs
 -- at the end of the first one
 
 (++) :: [a] -> [a] -> [a]
--- the definiton of something with 2 parameters must have 2 params on
--- the LHS
-[]     ++ l2 = l2
-(l:l1) ++ l2 = l : (l1 ++ l2)
--- l1 ++ l2 = foldr (:) l2 l1
+l1 ++ l2 = codelab
+
 
 
 
